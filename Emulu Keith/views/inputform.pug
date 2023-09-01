@@ -1,0 +1,69 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  title Bootstrap demo
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9' crossorigin='anonymous')
+  //- link(rel='stylesheet' href='/css/form.css')
+
+  script(defer='' src='/js/form.js')
+form#form(name='inputform' method='POST' action='/api/regnewuser')
+  div(style='padding: 20px;')
+    h1 BioDate
+    div(style='background-color: black; height: 3px; margin-bottom: 8px;') .
+    .row
+      .col
+        input#firstName.form-control(type='text' name='firstName' placeholder='First name' aria-label='First name')
+        .error
+      .col
+        input#lastName.form-control(type='text' name='lastName' placeholder='Last name' aria-label='Last name')
+        .error
+    br
+    .row
+      .col
+        input#DateOfBirth.form-control(type='date' name='DateOfBirth' placeholder='Date Of Birth(DD/MM/YYYY)' aria-label='First name')
+        .error
+      .col
+        input#Gender.form-control(type='text' name='Gender' placeholder='Gender' aria-label='Last name')
+        .error
+  div(style='padding: 20px;')
+    h1 Location
+    div(style='background-color: black; height: 3px; margin-bottom: 8px;') .
+    .row
+      .col
+        input#Country.form-control(type='text' name='Country' placeholder='Country' aria-label='Country')
+        .error
+      .col
+        input#State.form-control(type='text' name='State' placeholder='State/District' aria-label='State')
+        .error
+    br
+    .row
+      .col
+        input#Town.form-control(type='text' name='Town' placeholder='Town' aria-label='First name')
+        .error
+      .col
+        input#ZipCode.form-control(type='text' name='ZipCode' placeholder='Zip Code' aria-label='Last name')
+        .error
+  div(style='padding: 20px;')
+    h1 Contacts and Address
+    div(style='background-color: black; height: 3px; margin-bottom: 8px;') .
+    .row
+      .col
+        input#phoneNumber1.form-control(type='text' name='phoneNumber1' placeholder='phone Number 1' aria-label='phoneNumber1')
+        .error
+      .col
+        input#phoneNumber2.form-control(type='text' name='phoneNumber2' placeholder='phone Number 2' aria-label='phoneNumber2')
+        .error
+    br
+    .row
+      .col
+        input#email.form-control(type='text' name='email' placeholder='Email' aria-label='email')
+        .error
+    br
+    .row
+      .col(style='width:100%;')
+        input(type='hidden')
+      .col
+        button.btn.btn-warning(type='submit' style='background-color: orange;') SUBMIT
+
+script(src='/form.js')
