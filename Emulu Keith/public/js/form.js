@@ -11,13 +11,12 @@ const phoneNumber1 = document.getElementById("phoneNumber1");
 const phoneNumber2 = document.getElementById("phoneNumber2");
 const email = document.getElementById("email");
 
-
 form.addEventListener("submit", (e) => {
-  let valid = validateInputs(); 
+  let valid = validateInputs();
 
   console.log("Valid inputs", valid);
 
-  if ( valid > 0 ) {
+  if (valid > 0) {
     e.preventDefault();
   }
 });
@@ -40,6 +39,15 @@ const setSuccess = (element) => {
   inputControl.classList.remove("error");
 };
 
+const isValidfirstName = (firstName) => {
+  const re = /^[A-Za-z]{2,255}$/;
+  return re.test(firstName);
+};
+
+const isValidlastName = (lastNam) => {
+  const re = /^[A-Za-z]{2,255}$/;
+  return re.test(lastNam);
+};
 
 const validateInputs = () => {
   const firstNameValue = firstName.value.trim();
@@ -58,68 +66,74 @@ const validateInputs = () => {
   if (firstNameValue === "") {
     setError(firstName, "This field is required");
     error++;
-  }else {
+  } else if (!isValidfirstName(firstNameValue)) {
+    setError(firstName, "Enter a correct NIN");
+    error++;
+  } else {
     setSuccess(firstName);
   }
 
   if (lastNameValue === "") {
     setError(lastName, "This field is required");
     error++;
-  }else {
+  } else if (!isValidlastNam(lastNameValue)) {
+    setError(lastName, "Enter a correct NIN");
+    error++;
+  } else {
     setSuccess(lastName);
   }
   if (DateOfBirthValue === "") {
     setError(DateOfBirth, "This field is required");
     error++;
-  }else {
+  } else {
     setSuccess(DateOfBirth);
   }
   if (GenderValue === "") {
     setError(Gender, "This field is required");
     error++;
-  }else {
+  } else {
     setSuccess(Gender);
   }
   if (CountryValue === "") {
     setError(Country, "This field is required");
     error++;
-  }else {
+  } else {
     setSuccess(Country);
   }
   if (StateValue === "") {
     setError(State, "This field is required");
     error++;
-  }else {
+  } else {
     setSuccess(State);
   }
   if (TownValue === "") {
     setError(Town, "This field is required");
     error++;
-  }else {
+  } else {
     setSuccess(Town);
   }
   if (ZipCodeValue === "") {
     setError(ZipCode, "This field is required");
     error++;
-  }else {
+  } else {
     setSuccess(ZipCode);
   }
   if (phoneNumber1Value === "") {
     setError(phoneNumber1, "This field is required");
     error++;
-  }else {
+  } else {
     setSuccess(phoneNumber1);
   }
   if (phoneNumber2Value === "") {
     setError(phoneNumber2, "This field is required");
     error++;
-  }else {
+  } else {
     setSuccess(phoneNumber2);
   }
   if (emailValue === "") {
     setError(email, "This field is required");
     error++;
-  }else {
+  } else {
     setSuccess(email);
   }
 
